@@ -103,10 +103,11 @@ const products: Product[] = [
 ];
 
 export default function Index() {
-  const [currentSection, setCurrentSection] = useState<'home' | 'catalog' | 'about' | 'delivery'>('home');
+  const [currentSection, setCurrentSection] = useState<'home' | 'catalog' | 'about' | 'delivery' | 'payment'>('home');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Все');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
   const categories = ['Все', 'Уход за лицом', 'Уход за волосами', 'Макияж', 'Аксессуары', 'Уход за телом'];
 
@@ -188,7 +189,7 @@ export default function Index() {
               </button>
             </div>
 
-            <Sheet>
+            <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="relative">
                   <Icon name="ShoppingBag" size={20} />
@@ -256,7 +257,14 @@ export default function Index() {
                           <span>Итого:</span>
                           <span>{cartTotal} ₽</span>
                         </div>
-                        <Button className="w-full" size="lg">
+                        <Button 
+                          className="w-full" 
+                          size="lg"
+                          onClick={() => {
+                            setCurrentSection('payment');
+                            setIsCartOpen(false);
+                          }}
+                        >
                           Оплатить
                         </Button>
                       </div>
@@ -568,6 +576,106 @@ export default function Index() {
                   <div className="flex items-center gap-3">
                     <Icon name="MapPin" size={20} className="text-primary" />
                     <span>Санкт-Петербург, Приморский район</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {currentSection === 'payment' && (
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-4xl font-bold">Оформление заказа</h2>
+              <p className="text-xl text-muted-foreground">Выберите способ оплаты</p>
+            </div>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="space-y-4 mb-6">
+                  <h3 className="text-lg font-semibold">Ваш заказ</h3>
+                  <div className="space-y-2">
+                    {cart.map(item => (
+                      <div key={item.id} className="flex justify-between text-sm">
+                        <span>{item.name} × {item.quantity}</span>
+                        <span className="font-medium">{item.price * item.quantity} ₽</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="border-t pt-4 flex justify-between text-lg font-bold">
+                    <span>Итого:</span>
+                    <span className="text-primary">{cartTotal} ₽</span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">Способы оплаты</h3>
+                  <div className="grid gap-4">
+                    <Card className="cursor-pointer hover:border-primary transition-colors border-2">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-4">
+                          <Icon name="CreditCard" size={32} className="text-primary" />
+                          <div className="flex-1">
+                            <h4 className="font-semibold">Банковская карта</h4>
+                            <p className="text-sm text-muted-foreground">Visa, MasterCard, МИР</p>
+                          </div>
+                          <Icon name="ChevronRight" size={20} className="text-muted-foreground" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="cursor-pointer hover:border-primary transition-colors border-2">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-4">
+                          <Icon name="Wallet" size={32} className="text-primary" />
+                          <div className="flex-1">
+                            <h4 className="font-semibold">Электронные кошельки</h4>
+                            <p className="text-sm text-muted-foreground">ЮMoney, QIWI, WebMoney</p>
+                          </div>
+                          <Icon name="ChevronRight" size={20} className="text-muted-foreground" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="cursor-pointer hover:border-primary transition-colors border-2">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-4">
+                          <Icon name="Banknote" size={32} className="text-primary" />
+                          <div className="flex-1">
+                            <h4 className="font-semibold">Наличными при получении</h4>
+                            <p className="text-sm text-muted-foreground">Оплата курьеру</p>
+                          </div>
+                          <Icon name="ChevronRight" size={20} className="text-muted-foreground" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div className="pt-4">
+                    <Button 
+                      variant="outline" 
+                      className="w-full"
+                      onClick={() => setCurrentSection('catalog')}
+                    >
+                      <Icon name="ArrowLeft" size={20} className="mr-2" />
+                      Вернуться к покупкам
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-primary/5 border-primary">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <Icon name="Info" size={24} className="text-primary flex-shrink-0 mt-0.5" />
+                  <div className="space-y-2">
+                    <h4 className="font-semibold">Важная информация</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• После выбора способа оплаты вы будете перенаправлены на защищенную страницу оплаты</li>
+                      <li>• При заказе на адрес в Приморском квартале применяется скидка 5%</li>
+                      <li>• Доставка по Санкт-Петербургу бесплатна при заказе от 3000 ₽</li>
+                    </ul>
                   </div>
                 </div>
               </CardContent>
