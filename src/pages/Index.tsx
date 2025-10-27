@@ -20,15 +20,15 @@ interface CartItem extends Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: 'Увлажняющая сыворотка с гиалуроновой кислотой', category: 'Уход за лицом', price: 1650, image: '💧', description: 'Глубокое увлажнение на 24 часа' },
-  { id: 2, name: 'Питательный крем для сухой кожи', category: 'Уход за лицом', price: 1320, image: '🌸', description: 'Восстановление и питание' },
-  { id: 3, name: 'Витаминная маска для лица', category: 'Уход за лицом', price: 990, image: '✨', description: 'С витамином C и E' },
-  { id: 4, name: 'Восстанавливающий шампунь', category: 'Уход за волосами', price: 880, image: '🧴', description: 'Для поврежденных волос' },
-  { id: 5, name: 'Маска для волос с кератином', category: 'Уход за волосами', price: 1100, image: '💆‍♀️', description: 'Интенсивное восстановление' },
+  { id: 1, name: 'Увлажняющая сыворотка с гиалуроновой кислотой', category: 'Уход за лицом', price: 1650, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/4f29d217-22b5-468c-a1c9-aed2abc9e82e.jpg', description: 'Глубокое увлажнение на 24 часа' },
+  { id: 2, name: 'Питательный крем для сухой кожи', category: 'Уход за лицом', price: 1320, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/4f29d217-22b5-468c-a1c9-aed2abc9e82e.jpg', description: 'Восстановление и питание' },
+  { id: 3, name: 'Витаминная маска для лица', category: 'Уход за лицом', price: 990, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/4f29d217-22b5-468c-a1c9-aed2abc9e82e.jpg', description: 'С витамином C и E' },
+  { id: 4, name: 'Восстанавливающий шампунь', category: 'Уход за волосами', price: 880, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/47b80b1a-1bce-40cf-8433-4ae79a6f452e.jpg', description: 'Для поврежденных волос' },
+  { id: 5, name: 'Маска для волос с кератином', category: 'Уход за волосами', price: 1100, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/47b80b1a-1bce-40cf-8433-4ae79a6f452e.jpg', description: 'Интенсивное восстановление' },
   { id: 6, name: 'Термозащитный спрей', category: 'Уход за волосами', price: 770, image: '🌡️', description: 'Защита от высоких температур' },
-  { id: 7, name: 'Набор бесшовных резинок (пастель)', category: 'Аксессуары', price: 220, image: '🎀', description: 'Нежные пастельные оттенки' },
+  { id: 7, name: 'Набор бесшовных резинок (пастель)', category: 'Аксессуары', price: 220, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/74928914-6fb6-42be-8371-aa6f4e945785.jpg', description: 'Нежные пастельные оттенки' },
   { id: 8, name: 'Набор бесшовных резинок (яркие)', category: 'Аксессуары', price: 220, image: '🌈', description: 'Яркие цвета для настроения' },
-  { id: 9, name: 'Спонжи для макияжа (4 шт)', category: 'Аксессуары', price: 330, image: '🔮', description: 'Мягкие и упругие' },
+  { id: 9, name: 'Спонжи для макияжа (4 шт)', category: 'Аксессуары', price: 330, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/74928914-6fb6-42be-8371-aa6f4e945785.jpg', description: 'Мягкие и упругие' },
   { id: 10, name: 'Мицеллярная вода', category: 'Уход за лицом', price: 550, image: '💦', description: 'Деликатное очищение' },
   { id: 11, name: 'Бальзам-кондиционер', category: 'Уход за волосами', price: 660, image: '🌿', description: 'Легкое расчесывание' },
   { id: 12, name: 'Скраб для губ', category: 'Уход за лицом', price: 440, image: '💋', description: 'Сахарный скраб с маслами' },
@@ -53,9 +53,9 @@ const products: Product[] = [
   { id: 31, name: 'Лак для волос', category: 'Уход за волосами', price: 550, image: '💨', description: 'Длительная фиксация' },
   { id: 32, name: 'Сыворотка для кончиков волос', category: 'Уход за волосами', price: 880, image: '✂️', description: 'Против сечения' },
   { id: 33, name: 'Шампунь для вьющихся волос', category: 'Уход за волосами', price: 990, image: '🌀', description: 'Определение завитков' },
-  { id: 34, name: 'Тушь для ресниц объемная', category: 'Макияж', price: 880, image: '👁️', description: 'Увеличивает объем в 5 раз' },
+  { id: 34, name: 'Тушь для ресниц объемная', category: 'Макияж', price: 880, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/36ead8a8-1166-485c-b66e-65cb424d8230.jpg', description: 'Увеличивает объем в 5 раз' },
   { id: 35, name: 'Тушь для ресниц удлиняющая', category: 'Макияж', price: 880, image: '✨', description: 'Эффект накладных ресниц' },
-  { id: 36, name: 'Помада матовая (красная)', category: 'Макияж', price: 770, image: '💄', description: 'Стойкость до 12 часов' },
+  { id: 36, name: 'Помада матовая (красная)', category: 'Макияж', price: 770, image: 'https://cdn.poehali.dev/projects/b77745de-1349-4823-9143-e0f4f122ef99/files/36ead8a8-1166-485c-b66e-65cb424d8230.jpg', description: 'Стойкость до 12 часов' },
   { id: 37, name: 'Помада матовая (нюдовая)', category: 'Макияж', price: 770, image: '💋', description: 'Нежный натуральный оттенок' },
   { id: 38, name: 'Блеск для губ', category: 'Макияж', price: 550, image: '✨', description: 'С эффектом объема' },
   { id: 39, name: 'Карандаш для губ', category: 'Макияж', price: 440, image: '✏️', description: 'Четкий контур' },
@@ -413,8 +413,16 @@ export default function Index() {
               {filteredProducts.map(product => (
                 <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                   <CardContent className="p-0">
-                    <div className="bg-gradient-to-br from-primary/10 to-secondary/10 h-48 flex items-center justify-center text-7xl">
-                      {product.image}
+                    <div className="bg-gradient-to-br from-primary/10 to-secondary/10 h-48 flex items-center justify-center overflow-hidden">
+                      {product.image.startsWith('http') ? (
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-7xl">{product.image}</span>
+                      )}
                     </div>
                     <div className="p-4 space-y-3">
                       <Badge variant="secondary" className="text-xs">{product.category}</Badge>
